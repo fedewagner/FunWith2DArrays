@@ -18,7 +18,7 @@
                 selection = int.Parse(Console.ReadKey(true).KeyChar.ToString());
             }
 
-            //ask the user what dimension he wants
+            //ask the user what dimension he wants for columns
             int dimensionColumns, dimensionRows;
             Console.WriteLine("Please select the amount of columns dimension (from 1 to 9): ");
             int selectionColumns = int.Parse(Console.ReadKey(true).KeyChar.ToString());
@@ -28,7 +28,7 @@
                 selectionColumns = int.Parse(Console.ReadKey(true).KeyChar.ToString());
             }
 
-            
+            //ask the user what dimension he wants for rows
             Console.WriteLine("Please select the amount of rows dimension (from 1 to 9): ");
             int selectionRows = int.Parse(Console.ReadKey(true).KeyChar.ToString());
             while (selectionRows < 1 || selectionRows > 10)
@@ -37,8 +37,7 @@
                 selectionRows = int.Parse(Console.ReadKey(true).KeyChar.ToString());
             }
             
-            //ADITIONAL: select type of board (shape, color, etc)
-
+            //print the array
             switch (selection)
             {
                 case 1: FunWith2DArrays.ChessBoard.DisplayChessBoard(selectionColumns, selectionRows);
