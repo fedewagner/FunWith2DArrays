@@ -13,31 +13,37 @@
             Console.WriteLine("Please indicate the type of board you would like to choose:");
             Console.WriteLine($"{SELECTION_CHESS} => Chess Board");
             Console.WriteLine($"{SELECTION_COLORFUL_BOARD} => Colorful with numbers Board");
-            int selection = int.Parse(Console.ReadKey(true).KeyChar.ToString());
-            while (selection != SELECTION_CHESS && selection != SELECTION_COLORFUL_BOARD)
+
+            List<int> options = new List<int> { SELECTION_CHESS,  SELECTION_COLORFUL_BOARD };
+            int selection;
+            bool success;
+            do
             {
-                Console.WriteLine("Please choose one of the following: 1 or 2");
-                selection = int.Parse(Console.ReadKey(true).KeyChar.ToString());
-            }
+                Console.WriteLine($"Please choose one of the following: 1 or 2");
+                success = int.TryParse(Console.ReadKey(true).KeyChar.ToString(), out selection);
+            } while (!success || !options.Contains(selection));
+            Console.WriteLine($"Option selected: '{selection}'.");
 
             //ask the user what dimension he wants for columns
-            int dimensionColumns, dimensionRows;
-            Console.WriteLine("Please select the amount of columns dimension (from 1 to 9): ");
-            int selectionColumns = int.Parse(Console.ReadKey(true).KeyChar.ToString());
-            while (selectionColumns < MIN_NUMBER_OF_DIMENSIONS || selectionColumns >= MAX_NUMBER_OF_DIMENSIONS)
+            int selectionColumns;
+            do
             {
-                Console.WriteLine("From 1 to 9!");
-                selectionColumns = int.Parse(Console.ReadKey(true).KeyChar.ToString());
-            }
-
+                Console.WriteLine("Please select the amount of columns (from 1 to 9): ");
+                success = int.TryParse(Console.ReadKey(true).KeyChar.ToString(), out selectionColumns);
+            } 
+            while (!success || selectionColumns < MIN_NUMBER_OF_DIMENSIONS || selectionColumns > MAX_NUMBER_OF_DIMENSIONS);
+            Console.WriteLine($"Selected columns: '{selectionColumns}'.");
+            
+            
             //ask the user what dimension he wants for rows
-            Console.WriteLine("Please select the amount of rows dimension (from 1 to 9): ");
-            int selectionRows = int.Parse(Console.ReadKey(true).KeyChar.ToString());
-            while (selectionRows < MIN_NUMBER_OF_DIMENSIONS || selectionRows >= MAX_NUMBER_OF_DIMENSIONS)
+            int selectionRows;
+            do
             {
-                Console.WriteLine("From 1 to 9!");
-                selectionRows = int.Parse(Console.ReadKey(true).KeyChar.ToString());
-            }
+                Console.WriteLine("Please select the amount of rows (from 1 to 9): ");
+                success = int.TryParse(Console.ReadKey(true).KeyChar.ToString(), out selectionRows);
+            } 
+            while (!success || selectionRows < MIN_NUMBER_OF_DIMENSIONS || selectionRows > MAX_NUMBER_OF_DIMENSIONS);
+            Console.WriteLine($"Selected rows: '{selectionRows}'.");
             
             //print the array
             switch (selection)
