@@ -9,8 +9,8 @@
             
             //ask user the type of board he wants
             Console.WriteLine("Please indicate the type of board you would like to choose:");
-            Console.WriteLine("'1' => Chess Board");
-            Console.WriteLine("'2' => Colorful with numbers Board");
+            Console.WriteLine($"{SELECTION_CHESS} => Chess Board");
+            Console.WriteLine($"{SELECTION_COLORFUL_BOARD} => Colorful with numbers Board");
             int selection = int.Parse(Console.ReadKey(true).KeyChar.ToString());
             while (selection != SELECTION_CHESS && selection != SELECTION_COLORFUL_BOARD)
             {
