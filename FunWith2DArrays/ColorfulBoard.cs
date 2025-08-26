@@ -4,6 +4,10 @@ public static class ColorfulBoard
 {
     public static void DisplayColorfulBoard(int dimensionX, int dimensionY)
     {
+        const int TEN_TO_IMPROVE_THE_ALIGNMENT_OF_CHARACTERS = 10;
+        const int HUNDRED_TO_IMPROVE_THE_ALIGNMENT_OF_CHARACTERS = 100;
+        
+        
         int[,] userArray = new int [dimensionX, dimensionY];
 
         //Print the upper border (one extra at the beginning and one at the end)
@@ -39,11 +43,11 @@ public static class ColorfulBoard
                 }
                     
                 //Print the output
-                if (userArray[col, row] < 10)
+                if (userArray[col, row] < TEN_TO_IMPROVE_THE_ALIGNMENT_OF_CHARACTERS)
                 {Console.Write("  " + "0" + userArray[col, row] + "  ");}
                 else
                 {
-                    if (userArray[col, row] >= 100)
+                    if (userArray[col, row] >= HUNDRED_TO_IMPROVE_THE_ALIGNMENT_OF_CHARACTERS)
                     {
                         Console.Write("  " + userArray[col, row] + " ");   
                     }
