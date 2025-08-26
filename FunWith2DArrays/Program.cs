@@ -6,6 +6,8 @@
         {
             const int SELECTION_CHESS = 1;
             const int SELECTION_COLORFUL_BOARD = 2;
+            const int MIN_NUMBER_OF_DIMENSIONS = 1;
+            const int MAX_NUMBER_OF_DIMENSIONS = 9;
             
             //ask user the type of board he wants
             Console.WriteLine("Please indicate the type of board you would like to choose:");
@@ -22,7 +24,7 @@
             int dimensionColumns, dimensionRows;
             Console.WriteLine("Please select the amount of columns dimension (from 1 to 9): ");
             int selectionColumns = int.Parse(Console.ReadKey(true).KeyChar.ToString());
-            while (selectionColumns < 1 || selectionColumns > 10)
+            while (selectionColumns < MIN_NUMBER_OF_DIMENSIONS || selectionColumns >= MAX_NUMBER_OF_DIMENSIONS)
             {
                 Console.WriteLine("From 1 to 9!");
                 selectionColumns = int.Parse(Console.ReadKey(true).KeyChar.ToString());
@@ -31,7 +33,7 @@
             //ask the user what dimension he wants for rows
             Console.WriteLine("Please select the amount of rows dimension (from 1 to 9): ");
             int selectionRows = int.Parse(Console.ReadKey(true).KeyChar.ToString());
-            while (selectionRows < 1 || selectionRows > 10)
+            while (selectionRows < MIN_NUMBER_OF_DIMENSIONS || selectionRows >= MAX_NUMBER_OF_DIMENSIONS)
             {
                 Console.WriteLine("From 1 to 9!");
                 selectionRows = int.Parse(Console.ReadKey(true).KeyChar.ToString());
