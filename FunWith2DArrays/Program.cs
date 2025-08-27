@@ -19,7 +19,7 @@
             bool success;
             do
             {
-                Console.WriteLine($"Please choose one of the following: 1 or 2");
+                Console.WriteLine($"Please choose one of the following: {SELECTION_CHESS} or {SELECTION_COLORFUL_BOARD}");
                 success = int.TryParse(Console.ReadKey(true).KeyChar.ToString(), out selection);
             } while (!success || !options.Contains(selection));
             Console.WriteLine($"Option selected: '{selection}'.");
